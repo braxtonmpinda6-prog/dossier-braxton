@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier Braxton - Prestige Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --carbon: #121212; 
+            --racing-red: #d32f2f; 
+            --gold: #c5a059; 
+            --glass: rgba(20, 20, 20, 0.95);
+        }
+
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0; 
+            background-color: #050505;
+            background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #eee;
+            overflow-x: hidden;
+        }
+
+        .top-bar {
+            position: fixed; top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--racing-red), var(--gold));
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%; max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: left;
+            border-bottom: 2px solid var(--racing-red);
+            padding-bottom: 20px;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-family: 'Syncopate', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.2em, 5vw, 2.5em);
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin: 0;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 10px;
+            margin-bottom: 60px;
+            position: sticky;
+            top: 20px;
+            z-index: 999;
+        }
+
+        .nav-link {
+            padding: 12px;
+            background: var(--carbon);
+            border: 1px solid #333;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.65em;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            transition: 0.4s;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+
+        .nav-link:hover {
+            background: var(--racing-red);
+            transform: skewX(-5deg);
+        }
+
+        section { margin-top: 60px; }
+
+        .section-label {
+            font-family: 'Syncopate', sans-serif;
+            color: var(--racing-red);
+            font-size: 0.7em;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 1px solid #222;
+            padding: 25px;
+            position: relative;
+            transition: 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .card::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
+            background: var(--racing-red);
+        }
+
+        h3 { 
+            font-family: 'Syncopate', sans-serif; 
+            font-size: 0.9em; 
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .proust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .proust-item {
+            background: rgba(255,255,255,0.02);
+            padding: 15px;
+            border-left: 1px solid #333;
+        }
+
+        .proust-item b {
+            color: var(--gold);
+            font-size: 0.7em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .map-wrapper {
+            position: relative;
+            background: #000;
+            border: 1px solid #333;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+        
+        .map-wrapper img { 
+            width: 100%; 
+            display: block; 
+            opacity: 0.4; 
+            filter: grayscale(1);
+        }
+
+        .dot {
+            position: absolute; width: 8px; height: 8px; border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 30px 0;
+            border-top: 1px solid #222;
+            font-size: 0.7em;
+            text-align: center;
+            letter-spacing: 2px;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar"></div>
+
+    <div class="container">
+        <header>
+            <span style="color: var(--gold); font-weight: bold; font-size: 0.8em;">DOSSIER TECHNIQUE // 3.G</span>
+            <h1>BRAXTON.AUTOPORTRAIT</h1>
+            <p style="color: #666; font-size: 0.8em; margin-top: 5px;">SESSION 2026 // ANALYSE PERSONNELLE</p>
+        </header>
+
+        <nav class="nav-dashboard">
+            <a href="#proust" class="nav-link">Proust</a>
+            <a href="#chinois" class="nav-link">Analogie</a>
+            <a href="#recit" class="nav-link">Parcours</a>
+            <a href="#noms" class="nav-link">Souvenirs</a>
+            <a href="#objets" class="nav-link">Equipement</a>
+            <a href="#valeurs" class="nav-link">Valeurs</a>
+            <a href="#objectif" class="nav-link">Objectif</a>
+            <a href="#prenom" class="nav-link">Prénom</a>
+            <a href="#logement" class="nav-link">Logement</a>
+            <a href="#geo" class="nav-link">Carte</a>
+        </nav>
+
+        <section id="proust">
+            <span class="section-label">IDENTITÉ // 01</span>
+            <div class="card">
+                <h3>QUESTIONNAIRE DE PROUST</h3>
+                <div class="proust-grid">
+                    <div class="proust-item"><b>Qualité (Garçon)</b> La loyauté.</div>
+                    <div class="proust-item"><b>Qualité (Fille)</b> Qu'elle sache cuisiner.</div>
+                    <div class="proust-item"><b>Amitié</b> Pouvoir tout leur dire.</div>
+                    <div class="proust-item"><b>Rêve</b> Posséder des hypercars (Pagani Huayra en carbone rouge, 488 Pista) et rouler sur l'Autobahn.</div>
+                    <div class="proust-item"><b>Crainte</b> Ne pas être fier de mon parcours.</div>
+                    <div class="proust-item"><b>Aversion</b> Ceux qui préfèrent les brunes 10/10 aux blondes 10/10.</div>
+                    <div class="proust-item"><b>Don souhaité</b> La générosité.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="chinois">
+            <span class="section-label">ANALOGIES // 02</span>
+            <div class="card">
+                <h3>PORTRAIT CHINOIS</h3>
+                <div class="proust-grid">
+                    <div class="proust-item"><b>SI J'ÉTAIS UNE FEMME</b> Je serais blonde (Les plus belles femmes).</div>
+                    <div class="proust-item"><b>SI J'ÉTAIS UN OBJET</b> Un clavier mécanique 60% pour la sensation tactile.</div>
+                    <div class="proust-item"><b>SI J'ÉTAIS UN ANIMAL</b> Un chien, pour leur côté mignon.</div>
+                    <div class="proust-item">
+                        <b>SI J'ÉTAIS UN SON</b> 
+                        <p><i>FENDI</i> de Ninho, source de pur bonheur.</p>
+                        <a href="https://www.youtube.com/watch?v=PbFB4dBZ1vg" target="_blank" style="color:var(--gold); font-size:0.8em; text-decoration:none;">
+                            <span class="play-icon">▶</span> ÉCOUTER SUR YOUTUBE
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recit">
+            <span class="section-label">PERFORMANCE // 03</span>
+            <div class="card">
+                <h3>RÉCIT : BASKET</h3>
+                <p><b>Basket-ball :</b> Un peu avant le Covid, j’ai eu envie de changer du foot. Après avoir regardé l'anime <i>Kuroko no Basket</i>, la motivation était telle que j'ai franchi le pas. L'animation a transformé mon envie en passion réelle.</p>
+            </div>
+        </section>
+
+        <section id="noms">
+            <span class="section-label">ARCHIVES // 04</span>
+            <div class="card">
+                <h3>SOUVENIRS SCOLAIRES</h3>
+                <p>Je garde en mémoire Thomas Bousquet qui forçait l'accent américain sur mon prénom. Il y a aussi Manon, dont l'intelligence m'a marqué avant qu'elle ne saute une classe. Des rencontres brèves mais marquantes.</p>
+            </div>
+        </section>
+
+        <section id="objets">
+            <span class="section-label">ÉQUIPEMENT// 05</span>
+            <div class="card">
+                <h3>ÉQUIPEMENT MATÉRIEL</h3>
+                <p>Mes <b>AirPods</b> sont indispensables pour ma passion musicale. Pour le reste, l'efficacité prime : <b>Apple Pay</b> remplace la carte physique. Je rejette les montres, jugées trop encombrantes.</p>
+            </div>
+        </section>
+
+        <section id="valeurs">
+            <span class="section-label">IDENTITÉ // 06</span>
+            <div class="card">
+                <h3>📖 DICTIONNAIRE PERSONNEL</h3>
+                <div class="proust-grid">
+                    <div class="proust-item"><b>Détermination</b> C'est fixer mon regard sur un objectif et ne jamais le lâcher, peu importe les obstacles.</div>
+                    <div class="proust-item"><b>Discipline</b> C'est faire ce que j'ai à faire, même quand je n'en ai pas envie.</div>
+                    <div class="proust-item"><b>Travail</b> C'est l'effort constant que je fournis pour transformer mes ambitions en réalité.</div>
+                    <div class="proust-item"><b>Créativité</b> Transformer des idées simples en quelque chose d'unique.</div>
+                    <div class="proust-item"><b>Honnêteté</b> Dire la vérité sans trahir les autres ni soi-même.</div>
+                    <div class="proust-item"><b>Persévérance</b> Continuer malgré les difficultés sans abandonner.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectif">
+            <span class="section-label">MISSION // 07</span>
+            <div class="card">
+                <h3>🎯 DESCRIPTION OBJECTIVE</h3>
+                <div class="proust-grid">
+                    <div class="proust-item" style="grid-column: 1 / -1;">
+                        <b>Autoportrait</b>
+                        <p style="color: #ccc; line-height: 1.6; margin-top: 10px;">
+                            Je présente une silhouette athlétique et élancée. Je porte mes cheveux en locks courtes et sombres qui encadrent mon visage de manière naturelle. Mon visage présente des traits fins et des expressions souvent neutres ou concentrées lorsque je suis face à un objectif. Je suis quelqu'un qui semble privilégier la discrétion tout en gardant une présence visuelle affirmée ; mon caractère reste nonchalant.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="prenom">
+            <span class="section-label">NOMENCLATURE // 08</span>
+            <div class="card">
+                <h3>🆔 ARCHIVES : MON PRÉNOM</h3>
+                <div class="proust-grid">
+                    <div class="proust-item"><b>Pourquoi celui-là ?</b> Mes parents cherchaient juste un prénom au style américain pour mes origines et ont choisi Braxton.</div>
+                    <div class="proust-item"><b>Ceux que j'ai évités</b> Mes parents n'ont pas hésité avec d'autres prénoms.</div>
+                    <div class="proust-item"><b>Refus</b> Je n'aurais pas voulu avoir un double prénom comme Jean-Claude, je trouve que ça fait vieux.</div>
+                    <div class="proust-item"><b>Pour mes enfants</b> WILLIAMS pour un garçon et INÈS pour une fille, car je trouve ça clean.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="logement">
+            <span class="section-label">PROJECTION // 09</span>
+            <div class="card">
+                <h3>🏠 PREMIER LOGEMENT</h3>
+                <div class="proust-grid">
+                    <div class="proust-item" style="grid-column: 1 / -1;">
+                        <b>Ma vision</b>
+                        <p style="color: #ccc; line-height: 1.6; margin-top: 10px;">
+                            Je me rappelle d'une maison en Haute-Savoie où ma chambre abritait un coffre à jouets et faisait face à un stade de sport. La cuisine était mon endroit préféré, car manger était déjà, à cette époque, mon passe-temps favori. Enfin, je revois le salon et son vaste écran, idéal pour regarder mes dessins animés.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+<section id="geo">
+            <span class="section-label">TRAJECTOIRE // 10</span>
+            <div class="card">
+                <h3>🌍 CARTE PERSONNELLE</h3>
+                <div class="map-wrapper" style="position: relative; background: #0c0c0c; border: 1px solid #222; border-radius: 4px; overflow: hidden; aspect-ratio: 16/9; display: flex; justify-content: center; align-items: center;">
+                    
+                    <svg viewBox="0 0 2000 1000" style="width: 100%; height: 100%;">
+                        <defs>
+                            <pattern id="mapGrid" width="50" height="50" patternUnits="userSpaceOnUse">
+                                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#151515" stroke-width="0.5"/>
+                            </pattern>
+                        </defs>
+                        <rect x="0" y="0" width="2000" height="1000" fill="url(#mapGrid)" />
+
+                        <g style="stroke: #121212; stroke-width: 1;">
+                            <path fill="#547C5A" d="M125.6,290.7C121.7,290.7,118.8,290.9,116,291.1c-2.8,0.2-5.7,0.3-8.6,0.5c-2.9,0.2-5.7,0.3-8.6,0.3c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c-2.9,0-5.7,0.1-8.6,0.1c
+        <footer>
+            <p>© 2026 B2M// ÉDITION CARBONE</p>
+        </footer>
+    </div>
+</body>
+</html>
+                
